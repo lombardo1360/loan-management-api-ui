@@ -1,0 +1,29 @@
+<nav>
+
+  <div class="brand">
+    <strong>Loan Management</strong>
+  </div>
+
+  <div class="links">
+
+    <a routerLink="/loans">
+      Loans
+    </a>
+
+    <a routerLink="/clients">
+      Clients
+    </a>
+
+    @if (isAdmin()) {
+      <a routerLink="/users">
+        Users
+      </a>
+    }
+
+    <button type="button" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+</nav>
