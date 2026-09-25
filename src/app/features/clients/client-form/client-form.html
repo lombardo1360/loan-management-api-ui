@@ -1,0 +1,77 @@
+<h2>Create Client</h2>
+
+<form
+  [formGroup]="clientForm"
+  (ngSubmit)="createClient()">
+
+  <div>
+    <label for="documentNumber">
+      Document Number
+    </label>
+
+    <input
+      id="documentNumber"
+      type="text"
+      formControlName="documentNumber">
+  </div>
+
+  <div>
+    <label for="firstName">
+      First Name
+    </label>
+
+    <input
+      id="firstName"
+      type="text"
+      formControlName="firstName">
+  </div>
+
+  <div>
+    <label for="lastName">
+      Last Name
+    </label>
+
+    <input
+      id="lastName"
+      type="text"
+      formControlName="lastName">
+  </div>
+
+  <div>
+    <label for="email">
+      Email
+    </label>
+
+    <input
+      id="email"
+      type="email"
+      formControlName="email">
+  </div>
+
+  <div>
+    <label for="phone">
+      Phone
+    </label>
+
+    <input
+      id="phone"
+      type="text"
+      formControlName="phone">
+  </div>
+
+  <div>
+    <label for="birthDate">
+      Birth Date
+    </label>
+
+    <input
+      id="birthDate"
+      type="date"
+      formControlName="birthDate">
+  </div>
+
+  <button type="submit">
+    Create Client
+  </button>
+
+</form>

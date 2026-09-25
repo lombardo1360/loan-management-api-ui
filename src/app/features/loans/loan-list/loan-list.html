@@ -1,0 +1,101 @@
+<h2>Loans</h2>
+
+<a routerLink="/loans/new">
+  <button type="button">
+    Create Loan
+  </button>
+</a>
+
+
+@if (loans.length === 0) {
+
+  <p>No loans found.</p>
+
+} @else {
+
+  <table>
+
+    <thead>
+
+      <tr>
+        <th>ID</th>
+        <th>Client</th>
+        <th>Amount</th>
+        <th>Interest</th>
+        <th>Term</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      @for (loan of loans; track loan.id) {
+
+        <tr>
+
+          <td>
+            {{ loan.id }}
+          </td>
+
+          <td>
+            {{ loan.clientId }}
+          </td>
+
+          <td>
+            {{ loan.amount }}
+          </td>
+
+          <td>
+            {{ loan.interestRate }}%
+          </td>
+
+          <td>
+            {{ loan.termInMonths }}
+          </td>
+
+          <td>
+            {{ loan.status }}
+          </td>
+          <a [routerLink]="['/loans', loan.id]">
+            View
+          </a>
+          <td>
+            <a [routerLink]="['/loans', loan.id, 'edit']">
+              Edit
+            </a>
+
+            @if (loan.status === 'PENDING') {
+
+              <button
+                type="button"
+                (click)="approve(loan.id)">
+                Approve
+              </button>
+
+              <button
+                type="button"
+                (click)="reject(loan.id)">
+                Reject
+              </button>
+
+                <button
+                type="button"
+                (click)="delete(loan.id)">
+                Delete
+              </button>
+
+            }
+
+          </td>
+
+        </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+
+}

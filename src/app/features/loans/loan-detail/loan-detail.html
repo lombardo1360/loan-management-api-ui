@@ -1,0 +1,56 @@
+@if (loan) {
+
+  <h2>Loan Detail</h2>
+
+  <div>
+    <strong>ID:</strong>
+    {{ loan.id }}
+  </div>
+
+  <div>
+    <strong>Client:</strong>
+    {{ loan.clientId }}
+  </div>
+
+  <div>
+    <strong>Amount:</strong>
+    {{ loan.amount }}
+  </div>
+
+  <div>
+    <strong>Interest Rate:</strong>
+    {{ loan.interestRate }}%
+  </div>
+
+  <div>
+    <strong>Term:</strong>
+    {{ loan.termInMonths }} months
+  </div>
+
+  <div>
+    <strong>Status:</strong>
+    {{ loan.status }}
+  </div>
+
+  <div>
+    <strong>Created:</strong>
+    {{ loan.createdAt }}
+  </div>
+
+  <br>
+
+  <a [routerLink]="['/loans', loan.id, 'edit']">
+    Edit
+  </a>
+
+  <br>
+
+  <a routerLink="/loans">
+    Back to Loans
+  </a>
+
+} @else {
+
+  <p>Loading loan...</p>
+
+}

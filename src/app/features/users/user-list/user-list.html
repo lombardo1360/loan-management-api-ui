@@ -1,0 +1,67 @@
+<h2>Users</h2>
+
+<a routerLink="/users/new">
+  Create User
+</a>
+
+<br>
+<br>
+
+@if (users.length === 0) {
+
+  <p>No users found.</p>
+
+} @else {
+
+  <table>
+
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      @for (user of users; track user.id) {
+
+        <tr>
+
+          <td>
+            {{ user.id }}
+          </td>
+
+          <td>
+            {{ user.username }}
+          </td>
+
+          <td>
+            {{ user.role }}
+          </td>
+
+          <td>
+
+            <a [routerLink]="['/users', user.id, 'edit']">
+              Edit
+            </a>
+
+            <button
+              type="button"
+              (click)="deleteUser(user.id)">
+              Delete
+            </button>
+
+          </td>
+
+        </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+
+}

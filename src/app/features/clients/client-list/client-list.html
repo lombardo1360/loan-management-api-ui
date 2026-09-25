@@ -1,0 +1,68 @@
+<p>client-list works!</p>,
+<h2>Clients</h2>
+
+<a routerLink="/clients/new">
+  Create Client
+</a>
+
+<br><br>
+
+@if (clients.length === 0) {
+
+  <p>No clients found.</p>
+
+} @else {
+
+  <table>
+
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Document</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Birth Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      @for (client of clients; track client.id) {
+
+        <tr>
+
+          <td>
+            {{ client.id }}
+          </td>
+
+          <td>
+            {{ client.documentNumber }}
+          </td>
+
+          <td>
+            {{ client.firstName }}
+            {{ client.lastName }}
+          </td>
+
+          <td>
+            {{ client.email }}
+          </td>
+
+          <td>
+            {{ client.phone }}
+          </td>
+
+          <td>
+            {{ client.birthDate }}
+          </td>
+
+        </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+
+}
